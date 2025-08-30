@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUNSHINE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Dancing Script", cursive;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+     
+      background-image: url("https://i.pinimg.com/736x/13/ba/44/13ba44beda97550f3cd1921b5d7f51c8.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      width: 600px;
+      height: 340px;
+      perspective: 1000px;
+    }
+
+    .envelope {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      background: url("https://i.pinimg.com/736x/cb/1d/a5/cb1da52d2220855d2c591ca77d23b84f.jpg");
+      background-size: cover;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 180px;
+      background: url("https://i.pinimg.com/736x/cb/1d/a5/cb1da52d2220855d2c591ca77d23b84f.jpg");
+      background-size: cover;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform-origin: top;
+      transition: transform 0.6s ease;
+      z-index: 5;
+
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .letter, .plan-letter {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 560px;
+      height: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 26px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.6s ease;
+    }
+
+    .letter {
+      background: linear-gradient(to bottom, #fff8e7,#fffacd,#ffe4e1);
+      z-index: 1;
+    }
+
+    .letter p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .plan-letter {
+      background: linear-gradient(to bottom, #fffefc, #fff3cd, #ffe0e0);
+      z-index: 0;
+    }
+
+    .plan-letter ul {
+      padding-left: 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .choice-buttons {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .choice-buttons button {
+      flex: 1;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border-radius: 8px;
+      border: 2px solid #fbc02d;
+      background: #fffde7;
+      color: #f57f17;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .choice-buttons button:hover {
+      background: #fbc02d;
+      color: #fff;
+    }
+
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+    .open .letter {
+      transform: translateY(0);
+      z-index: 2;
+    }
+    .open .plan-letter.show {
+      transform: translateY(0);
+      z-index: 3;
+    }
+
+    .reset {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .reset button {
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #fbc02d;
+      border-radius: 6px;
+      background: #fffde7;
+      cursor: pointer;
+      color: #f57f17;
+      transition: all 0.3s ease;
+    }
+    .reset button:hover {
+      background: #fbc02d;
+      color: #fff;
+      border-color: #f9a825;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-wrapper" id="envelope">
+    <div class="envelope">
+      <div class="flap"></div>
+      
+      
+      <div class="letter">
+        <p>My Sunshine,</p>
+        <p>HAPPY BIRTHDAY LOVEEEEE!!!!!</p>
+        <p>
+          This letter is not for expressing love, it's to ask you for something special.
+        </p>
+        <p>
+          Would you like to come out with me for a day and give me a chance to make your 20th birthday memorable?
+        </p>
+        <p> 
+          I have everything planned already... allow me to elaborate it my señor 💕
+        </p>
+
+        <div class="choice-buttons">
+          <button onclick="showPlan()">YESSSS</button>
+          <button onclick="showPlan()">YES OBVIOUSLYYYYY </button>
+        </div>
+
+        <p>
+          love sunflower<br>
+        
+        </p>
+      </div>
+
+
+      <div class="plan-letter" id="planLetter">
+        <p>My Love,</p>
+        <p>
+          Here’s the special birthday plan just for you:
+        </p>
+        <ul>
+          <li> We meet up at around 9:30 AM and I have something special to give you </li>
+          <li> We will go out to the MG road and get some cute polaroids </li>
+          <li> And for lunch we will go to a place where it all started "we grab JUMBO ROLL" YAYYY!!! </li>
+          <li> And we go to ikea and roaming around nicely </li>
+          <li> Finally you have a little something in party hut waiting for you</li>
+        </ul>
+        <p>
+          All I need is you beside me to make it perfect 
+        </p>
+      </div>
+    </div>
+
+    <div class="reset">
+      <button onclick="toggleEnvelope()">Open / Close</button>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const planLetter = document.getElementById("planLetter");
+
+    function toggleEnvelope() {
+      envelope.classList.toggle("open");
+      planLetter.classList.remove("show"); 
+    }
+
+    function showPlan() {
+      planLetter.classList.add("show");
+    }
+  </script>
+</body>
+</html>
+
